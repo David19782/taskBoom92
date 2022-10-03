@@ -34,6 +34,31 @@ export default class Application extends EventEmitter {
       document.querySelector(".main").appendChild(card.container);
     });
 
+    document.querySelector(".main").addEventListener('click', (e) => {
+      if(e.target.classList.contains("card") || e.target.classList.contains("emoji") || e.target.classList.contains("type")){
+
+      }else{
+        return
+      }
+      let el;
+      if(e.target.classList.contains("card")){
+        el = e.target;
+      }else{
+        el = e.target.parentElement
+      }
+      const not = new Notification();
+      const name = el.classList[1].substring(5);
+      const curr = pizzas.find(el => el.type === name);
+      console.log(curr);
+      not.render(curr.type, curr.price);
+      
+    })
+    document.querySelector('.notifications').addEventListener('click', (e) => {
+      if(e.target.classList.contains("delete")){
+        e.target.parentElement.style.display = "none"
+      }
+    })
+
     this.emit(Application.events.READY);
   }
 }
