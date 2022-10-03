@@ -1,5 +1,5 @@
 import { formatCurrency } from "./utils";
-let classNames = require("classnames");
+import classNames from "classnames";
 
 
 export default class Notification {
@@ -20,7 +20,7 @@ export default class Notification {
     this.container.innerHTML = "";
   }
 
-  render(type, price) {
+  render({type, price}) {
     const template = `
   <div class="notification type-${type} ${classNames({
     "is-danger": type === Notification.types.HAWAIIAN,
