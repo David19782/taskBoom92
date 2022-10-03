@@ -16,6 +16,10 @@ export default class Notification {
     this.container.classList.add("notification-container");
   }
 
+  empty() {
+    this.container.innerHTML = "";
+  }
+
   render(type, price) {
     const template = `
   <div class="notification type-${type} ${classNames({
