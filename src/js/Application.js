@@ -50,7 +50,7 @@ export default class Application extends EventEmitter {
       const name = el.classList[1].substring(5);
       const curr = pizzas.find(el => el.type === name);
       console.log(curr);
-      not.render(curr.type, curr.price);
+      not.render(curr);
       
     })
     document.querySelector('.notifications').addEventListener('click', (e) => {
